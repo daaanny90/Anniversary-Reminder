@@ -1,6 +1,6 @@
-stafrom reminder import *
+from reminder import *
 
-big_date = 'd/mm/yyyy' #date when you first met each other, format is m/d/y
+big_date = 'mm/dd/yyyy' #date when you first met each other, format is m/d/y
 big_day = 00 #day of the month when you want to send the message, format is dd
 email_sender = 'email@test.com' #your email address
 email_receiver = 'email@test.com' #your partner email address
@@ -15,5 +15,3 @@ schedule.every().day.at("10:00").do(job_func, big_day, big_date, email_sender, e
 while True:
     schedule.run_pending()
     time.sleep(1)
-
-    #<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

@@ -47,32 +47,32 @@ def job_func(bigDay,anniversaryDate,email_sender,email_receiver,smpt_server,mess
 
     if (monthDay == bigDay):
 
-            day = str(monthDay)
+        day = str(monthDay)
 
-            print('today is the ' + day)
+        print('today is the ' + day)
 
-            response = requests.get('http://quotes.rest/qod.json?category=love')
-            data = response.json()
+        response = requests.get('http://quotes.rest/qod.json?category=love')
+        data = response.json()
 
-            quote = data['contents']['quotes'][0]['quote']
-            author = data['contents']['quotes'][0]['author']
+        quote = data['contents']['quotes'][0]['quote']
+        author = data['contents']['quotes'][0]['author']
 
-            start = datetime.datetime.strptime(anniversaryDate,'%m/%d/%Y')
-            today = datetime.datetime.now()
-            type(today-start)
+        start = datetime.datetime.strptime(anniversaryDate,'%m/%d/%Y')
+        today = datetime.datetime.now()
+        type(today-start)
 
-            years = str((today-start).days/365)
-            month = str(int((((today-start).days/365.0)-(today-start).days/365)*12))
+        years = str((today-start).days/365)
+        month = str(int((((today-start).days/365.0)-(today-start).days/365)*12))
 
-            if (month == '0' or month == '12' ):
-                    message = quote + "\n (" + author + ") \n \n I love you since " + years + " years <3"
-            else:
-                    message = quote + "\n (" + author + ") \n \n I love you since " + years + " years and " + month + " month <3"
+        if (month == '0' or month == '12' ):
+                message = quote + "\n (" + author + ") \n \n I love you since " + years + " years <3"
+        else:
+                message = quote + "\n (" + author + ") \n \n I love you since " + years + " years and " + month + " month <3"
 
-            print(message)
-            sendEmail(message,email_sender,email_receiver,smpt_server,message_from,email_subject,email_password)
-            print('message sent!')
+        print(message)
+        sendEmail(message,email_sender,email_receiver,smpt_server,message_from,email_subject,email_password)
+        print('message sent!')
 
     else:
-            today = str(today)
-            print('not the right day! ' + today)
+        today = str(today)
+        print('not the right day! ' + today)
