@@ -36,7 +36,7 @@ python example.py
 
 The result will be something like this:
 
-picture
+<img src="https://github.com/daaanny90/Anniversary-Reminder/blob/master/img/love.JPG" />
 
 # Customization :blue_heart:
 If you want to change the content of the message, the picture or something else, just modifiy the file `reminder.py`.
