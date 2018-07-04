@@ -1,3 +1,5 @@
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
 # Anniversary Reminder :couple_with_heart:
 
 This is a simple reminder, written in Python, to send every month an email with a love quote to your partner, with the exact amount of time that you are toghether.
