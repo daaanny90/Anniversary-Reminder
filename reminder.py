@@ -8,7 +8,7 @@ import schedule
 import time
 import datetime
 
-def sendEmail(body,email_sender,email_receiver,smpt_server,message_from,email_subject,email_password):
+def sendEmail(quote_message,personal_message,email_sender,email_receiver,smpt_server,message_from,email_subject,email_password):
     emailSender=email_sender
     emailReceiver=email_receiver
     password=email_password
@@ -27,8 +27,11 @@ def sendEmail(body,email_sender,email_receiver,smpt_server,message_from,email_su
                                         </style>
                                 </head>
                         <body>
-                                <img src="https://www.publicdomainpictures.net/pictures/90000/velka/red-scribble-heart.jpg#.WzpAPCDkbpQ.link" style="display: block; margin: 0 auto; width: 25%;">
-                                <p style="font-style: italic;">""" + body + """</p>
+                                <img src="https://www.publicdomainpictures.net/pictures/90000/velka/red-scribble-heart.jpg#.WzpAPCDkbpQ.link" style="display: block; margin: 0 auto; width: 20%;">
+                                </ br>
+                                <p style="font-style: italic;">""" + quote_message + """</p>
+                                </ br>
+                                <p style="font-weight=bold; font-size=110%;">""" + personal_message + """</p>
                         </body>
                 </html>"""
 
@@ -65,12 +68,14 @@ def job_func(bigDay,anniversaryDate,email_sender,email_receiver,smpt_server,mess
         month = str(int((((today-start).days/365.0)-(today-start).days/365)*12))
 
         if (month == '0' or month == '12' ):
-                message = quote + "\n (" + author + ") \n \n I love you since " + years + " years <3"
+                quoteMessage = quote + "\n (" + author + ") \n \n"
+                personalMessage = "I love you since " + years + " years <3"
         else:
-                message = quote + "\n (" + author + ") \n \n I love you since " + years + " years and " + month + " month <3"
+                quoteMessage = quote + "\n (" + author + ") \n \n"
+                personalMessage = "I love you since " + years + " years and " + month + " month <3"
 
-        print(message)
-        sendEmail(message,email_sender,email_receiver,smpt_server,message_from,email_subject,email_password)
+
+        sendEmail(quoteMessage,personalMessage,email_sender,email_receiver,smpt_server,message_from,email_subject,email_password)
         print('message sent!')
 
     else:
